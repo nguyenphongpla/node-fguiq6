@@ -1,5 +1,9 @@
 // run `node index.js` in the terminal
 
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 const test = async () => {
   // throw new Error('Test Error nè');
   return Promise.resolve('Test success');
@@ -7,9 +11,8 @@ const test = async () => {
 
 const test1 = async () => {
   // throw new Error('Test 1');
-  setTimeout(() => {
-    return Promise.resolve('Test 2 success');
-  }, 3000);
+  await delay(3000);
+  return 'Test 1 success';
 };
 
 const test2 = async () => {
